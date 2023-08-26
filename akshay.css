@@ -1,0 +1,124 @@
+/* Reset some default browser styles */
+body, h2, form {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    
+}
+
+/* Styling for the overall form container */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+/* Styling for form elements */
+label {
+    color: #333;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: #f4f4f4;
+    color: #333;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    font-size: 14px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    margin-right: 5px;
+    transform: translateY(1px);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Styling for checkboxes and radio buttons */
+input[type="checkbox"]::before,
+input[type="radio"]::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    vertical-align: middle;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+input[type="checkbox"]:checked::before,
+input[type="radio"]:checked::before {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url('down-arrow.svg') no-repeat right center;
+    background-size: 20px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #0056b3;
+}
+
+/* Align the heading */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000000;
+    font-size: 24px;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 600px) {
+    form {
+        max-width: 90%;
+    }
+}
