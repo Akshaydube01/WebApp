@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="icon" type="image/png" href="/iit-bombay-logo.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+           
+            background-image: url('./17213260_rm373batch13-085.jpg');
+            background-size: cover; /* Adjusts the image to cover the entire viewport */
+    background-repeat: no-repeat; /* Prevents image repetition */
+    background-attachment: fixed; /* Fixes the image in place while scrolling */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff2d;
+            width:300px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 92%;
+            padding: 10px ;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #212121;
+        }
+        #h1{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 id="h1">Welcome</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Password" required>
+                <span class="toggle-password" onclick="togglePasswordVisibility()">Show</span>
+            </div>
+            <button type="button" onclick="validateLogin()">Login</button>
+        </form>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        const validUsers = [
+        { username: 'Syed', password: 'Syed@123', redirectURL: 'https://www.google.com/' },
+            { username: 'Akshay', password: 'Akshay@123', redirectURL: 'https://www.google.com/' },
+            { username: 'Sachin', password: 'Sachin@123', redirectURL: 'https://www.google.com/' },
+            { username: 'Abhishek', password: 'Abhishek@123', redirectURL: 'https://www.google.com/' },
+            { username: 'user5', password: 'password5', redirectURL: 'https://www.google.com/' },
+        ];
+
+        let isPasswordVisible = false;
+
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            isPasswordVisible = !isPasswordVisible;
+            passwordInput.type = isPasswordVisible ? 'text' : 'password';
+            document.querySelector('.toggle-password').textContent = isPasswordVisible ? 'Hide' : 'Show';
+        }
+
+        function validateLogin() {
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const message = document.getElementById('message');
+
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+
+            if (username === '' || password === '') {
+                message.textContent = 'Both fields are required.';
+                message.style.color = 'red';
+                return;
+            }
+
+            const validUser = validUsers.find(user => user.username === username && user.password === password);
+
+            if (validUser) {
+                message.textContent = 'Login successful.';
+                message.style.color = 'green';
+                // Redirect to the specified page
+                window.location.href = validUser.redirectURL;
+            } else {
+                message.textContent = 'Invalid credentials. Please try again.';
+                message.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
